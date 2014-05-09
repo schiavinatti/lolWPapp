@@ -1,0 +1,69 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="lolRespawn.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="768"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock x:Name="ApplicationTitle" Text="MY APPLICATION" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock x:Name="PageTitle" Text="page name" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Margin="39,0,-15,0" Grid.Row="1">
+
+            <Image Name="Map" HorizontalAlignment="Left" Margin="-79,0,-48,0" Width="559" Source="/images/SummonersRift.png" Height="576" VerticalAlignment="Top" d:IsLocked="True"/>
+
+            <Image HorizontalAlignment="Left" Height="78" Margin="-16,10,0,0" VerticalAlignment="Top" Width="75" Source="/images/start.png" DoubleTap="Image_DoubleTap"/>
+
+            <TextBlock Name="ClockBaron"       Height="37" HorizontalAlignment="Left" Margin="82,145,0,0"  Text="00:00" VerticalAlignment="Top" Width="76" FontWeight="ExtraBold" FontSize="30" DoubleTap="imgBaron_DoubleTap"      Foreground="#FF150202" />
+            <TextBlock Name="ClockDragon"      Height="37" HorizontalAlignment="Left" Margin="265,354,0,0" Text="00:00" VerticalAlignment="Top" Width="76" FontWeight="ExtraBold" FontSize="30" DoubleTap="imgDragon_DoubleTap"     Foreground="#FF150202" />
+            <TextBlock Name="ClockLizardTop"   Height="37" HorizontalAlignment="Left" Margin="163,128,0,0" Text="00:00" VerticalAlignment="Top" Width="76" FontWeight="ExtraBold" FontSize="30" DoubleTap="imgLizardTop_DoubleTap"  Foreground="#FF150202"/>
+            <TextBlock Name="ClockLizardBot"   Height="37" HorizontalAlignment="Left" Margin="184,387,0,0" Text="00:00" VerticalAlignment="Top" Width="76" FontWeight="ExtraBold" FontSize="30" DoubleTap="imgLizardBot_DoubleTap"  Foreground="#FF150202"/>
+            <TextBlock Name="ClockAncientTop"  Height="37" HorizontalAlignment="Left" Margin="300,282,0,0" Text="00:00" VerticalAlignment="Top" Width="76" FontWeight="ExtraBold" FontSize="30" DoubleTap="imgAncientTop_DoubleTap" Foreground="#FF150202"/>
+            <TextBlock Name="ClockAncientBot"  Height="37" HorizontalAlignment="Left" Margin="36,219,0,0"  Text="00:00" VerticalAlignment="Top" Width="76" FontWeight="ExtraBold" FontSize="30" DoubleTap="imgAncientBot_DoubleTap" Foreground="#FF150202"/>
+            <TextBlock Name="ClockGolemTop"    Height="37" HorizontalAlignment="Left" Margin="138,71,0,0"  Text="00:00" VerticalAlignment="Top" Width="76" FontWeight="ExtraBold" FontSize="30" DoubleTap="imgGolemTop_DoubleTap"   Foreground="#FF150202"/>
+            <TextBlock Name="ClockGolemBot"    Height="37" HorizontalAlignment="Left" Margin="209,436,0,0" Text="00:00" VerticalAlignment="Top" Width="76" FontWeight="ExtraBold" FontSize="30" DoubleTap="imgGolemBot_DoubleTap"   Foreground="#FF150202"/>
+            <TextBlock Name="ClockWolfTop"     Height="37" HorizontalAlignment="Left" Margin="300,212,0,0" Text="00:00" VerticalAlignment="Top" Width="76" FontWeight="ExtraBold" FontSize="30" DoubleTap="imgWolfTop_DoubleTap"    Foreground="#FF150202"/>
+            <TextBlock Name="ClockWolfBot"     Height="37" HorizontalAlignment="Left" Margin="48,303,0,0"  Text="00:00" VerticalAlignment="Top" Width="76" FontWeight="ExtraBold" FontSize="30" DoubleTap="imgWolfBot_DoubleTap"    Foreground="#FF150202"/>
+            <TextBlock Name="ClockWraithTop"   Height="37" HorizontalAlignment="Left" Margin="197,170,0,0" Text="00:00" VerticalAlignment="Top" Width="76" FontWeight="ExtraBold" FontSize="30" DoubleTap="imgWraithTop_DoubleTap"  Foreground="#FF150202"/>
+            <TextBlock Name="ClockWraithBot"   Height="37" HorizontalAlignment="Left" Margin="157,342,0,0" Text="00:00" VerticalAlignment="Top" Width="76" FontWeight="ExtraBold" FontSize="30" DoubleTap="imgWraithBot_DoubleTap"  Foreground="#FF150202" />
+
+            <Image Name="imgBaron"      HorizontalAlignment="Left" Height="50" Margin="93,151,0,0"  VerticalAlignment="Top" Width="50" Source="/images/120px-Baron_Nashor.png" DoubleTap="imgBaron_DoubleTap"/>
+            <Image Name="imgDragon"     HorizontalAlignment="Left" Height="50" Margin="279,354,0,0" VerticalAlignment="Top" Width="50" Source="/images/120px-DragonSquare.png" DoubleTap="imgDragon_DoubleTap"/>
+            <Image Name="imgLizardTop"  HorizontalAlignment="Left" Height="50" Margin="163,124,0,0" VerticalAlignment="Top" Width="50" Source="/images/120px-LizardSquare.png" DoubleTap="imgLizardTop_DoubleTap"/>
+            <Image Name="imgLizardBot"  HorizontalAlignment="Left" Height="50" Margin="197,384,0,0" VerticalAlignment="Top" Width="50" Source="/images/120px-LizardSquare.png" DoubleTap="imgLizardBot_DoubleTap"/>
+            <Image Name="imgAncientTop" HorizontalAlignment="Left" Height="50" Margin="326,275,0,0" VerticalAlignment="Top" Width="50" Source="/images/120px-GolemSquare.png"  DoubleTap="imgAncientTop_DoubleTap"/>
+            <Image Name="imgAncientBot" HorizontalAlignment="Left" Height="50" Margin="42,212,0,0"  VerticalAlignment="Top" Width="50" Source="/images/120px-GolemSquare.png"  DoubleTap="imgAncientBot_DoubleTap"/>
+            <Image Name="imgGolemTop"   HorizontalAlignment="Left" Height="50" Margin="145,63,0,0"  VerticalAlignment="Top" Width="50" Source="/images/120px-GolemSquare.png"  DoubleTap="imgGolemTop_DoubleTap"/>
+            <Image Name="imgGolemBot"   HorizontalAlignment="Left" Height="50" Margin="235,439,0,0" VerticalAlignment="Top" Width="50" Source="/images/120px-GolemSquare.png"  DoubleTap="imgGolemBot_DoubleTap"/>
+            <Image Name="imgWolfTop"    HorizontalAlignment="Left" Height="50" Margin="311,206,0,0" VerticalAlignment="Top" Width="50" Source="/images/120px-WolfSquare.png"   DoubleTap="imgWolfTop_DoubleTap"/>
+            <Image Name="imgWolfBot"    HorizontalAlignment="Left" Height="50" Margin="62,296,0,0"  VerticalAlignment="Top" Width="50" Source="/images/120px-WolfSquare.png"   DoubleTap="imgWolfBot_DoubleTap"/>
+            <Image Name="imgWraithTop"  HorizontalAlignment="Left" Height="50" Margin="209,180,0,0" VerticalAlignment="Top" Width="50" Source="/images/120px-WraithSquare.png" DoubleTap="imgWraithTop_DoubleTap"/>
+            <Image Name="imgWraithBot"  HorizontalAlignment="Left" Height="50" Margin="164,329,0,0" VerticalAlignment="Top" Width="50" Source="/images/120px-WraithSquare.png" DoubleTap="imgWraithBot_DoubleTap"/>
+
+
+
+
+        </Grid>
+
+    </Grid>
+
+</phone:PhoneApplicationPage>
