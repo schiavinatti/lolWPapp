@@ -106,6 +106,13 @@ namespace lolRespawn
             timerWraithBot.Tick += new EventHandler(WraithBot_Tick);
 
             #endregion
+            
+            #region Wight
+            
+            Wight.Interval = new TimeSpan(0, 0, 0, 1);
+            Wight.Tick += new EventHandler(Wight_Tick);
+            
+            #endregion
 
             #endregion
 
@@ -135,6 +142,7 @@ namespace lolRespawn
             imgWolfBot.Height = 0;
             imgWraithTop.Height = 0;
             imgWraithBot.Height = 0;
+            imgWight.Height = 0;
 
             ClockBaron.Width = 0;
             ClockDragon.Width = 0;
@@ -160,6 +168,7 @@ namespace lolRespawn
             ClockWolfBot.Height = 0;
             ClockWraithTop.Height = 0;
             ClockWraithBot.Height = 0;
+            ClockWight.Height = 0;
 
             #endregion
 
@@ -179,7 +188,8 @@ namespace lolRespawn
         DispatcherTimer timerWolfBot = new DispatcherTimer();
         DispatcherTimer timerWraithTop = new DispatcherTimer();
         DispatcherTimer timerWraithBot = new DispatcherTimer();
-
+	DispatcherTimer timerWight = new DispatcherTimer();
+	
         #endregion
 
         #region vars
@@ -207,6 +217,7 @@ namespace lolRespawn
         int tikWolfBot = 50;
         int tikWraithTop = 50;
         int tikWraithBot = 50;
+        int tikWight = 50;
 */
 
         #endregion
@@ -407,6 +418,22 @@ namespace lolRespawn
                 imgWraithBot.Height = HeightImg;
             }
         }
+
+        void Wight_Tick(object sender, EventArgs e)
+        {
+
+            ClockWight.Text = String.Format("{00:00}", tikWight / 60) + ":" + String.Format("{00:00}", tikWight % 60);
+            if (tikWight > 0)
+                tikWight--;
+            else
+            {
+                ClockWight.Width = 0;
+                ClockWight.Height = 0;
+                imgWight.Width = WidthImg;
+                imgWight.Height = HeightImg;
+            }
+        }       
+        
 
         #endregion
 
@@ -615,6 +642,21 @@ namespace lolRespawn
             imgWraithBot.Width = 0;
             imgWraithBot.Height = 0;
         }
+        
+        private void startWight()
+        {
+            if (gameOn)
+            {
+                tikWight = 50/apagar;
+            }
+            ClockWight.Height = HeightClock;
+            ClockWight.Width = WidthClock;
+            timerWight.Start();
+            imgWight.Width = 0;
+            imgWight.Height = 0;
+        }
+        
+        
 
         #endregion
 
@@ -841,6 +883,16 @@ namespace lolRespawn
         }
 
         #endregion
+        
+        #region Wight
+
+        private void ClockWight_DoubleTap(object sender, GestureEventArgs e)
+        {
+            startWight();
+        }
+
+        #endregion
+        
 
         #endregion
 
@@ -861,6 +913,7 @@ namespace lolRespawn
             tikWolfBot = 125/apagar;
             tikWraithTop = 125/apagar;
             tikWraithBot = 125/apagar;
+            tikWight = = 125/apagar;
 
             startBaron();
             startDragon();
@@ -874,6 +927,7 @@ namespace lolRespawn
             startWolfBot();
             startWraithTop();
             startWraithBot();
+            startWight();
 
             gameOn = true;
         }
